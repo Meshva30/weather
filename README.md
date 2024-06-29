@@ -24,6 +24,11 @@ Welcome to the Weather Forecast App! This application provides accurate and up-t
 
 
 </div>
+<div align="center">
+<video src= "https://github.com/Meshva30/weather/assets/136339359/90070bac-b2c7-4d15-a7c2-edf2ed059624" height=500px hspace=20>
+
+
+
 
 ###
 <div align="center">
