@@ -472,7 +472,9 @@ class Homescreen extends StatelessWidget {
                             height: 55,
                             width: 420,
                             decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: weatherData.current!.isDay == 1
+                                  ? Colors.black.withOpacity(0.2)
+                                  : Colors.white12.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: TextField(
@@ -556,21 +558,23 @@ class Homescreen extends StatelessWidget {
                                 ),
                                 Container(
                                   height: 260,
-                                  width: 440,
+                                  width: 480,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(30),
                                           topLeft: Radius.circular(30)),
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          weatherData.current!.isDay == 1
-                                              ? Colors.black45
-                                              : Colors.grey.shade400,
-                                          Colors.black12,
-                                          Colors.black12,
-                                          // Colors.grey.shade600,
-                                        ]
-                                      )),
+                                      gradient: LinearGradient(colors: [
+                                        weatherData.current!.isDay == 1
+                                            ? Colors.black12
+                                            : Colors.grey.shade900,
+                                        weatherData.current!.isDay == 1
+                                            ? Colors.black12
+                                            : Colors.grey.shade900,
+                                        weatherData.current!.isDay == 1
+                                            ? Colors.black12
+                                            : Colors.grey.shade800,
+                                        // Colors.grey.shade600,
+                                      ])),
                                   child: Column(
                                     children: [
                                       Padding(
@@ -579,17 +583,16 @@ class Homescreen extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-
                                             Text(
                                               'Hourly Forecast',
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 18,
-                                                color:
-                                                    weatherData.current!.isDay ==
-                                                            1
-                                                        ? Colors.black
-                                                        : Colors.white,
+                                                color: weatherData
+                                                            .current!.isDay ==
+                                                        1
+                                                    ? Colors.black
+                                                    : Colors.white,
                                               ),
                                             ),
                                             Text(
@@ -597,11 +600,11 @@ class Homescreen extends StatelessWidget {
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 18,
-                                                color:
-                                                    weatherData.current!.isDay ==
-                                                            1
-                                                        ? Colors.black
-                                                        : Colors.white,
+                                                color: weatherData
+                                                            .current!.isDay ==
+                                                        1
+                                                    ? Colors.black
+                                                    : Colors.white,
                                               ),
                                             ),
                                           ],

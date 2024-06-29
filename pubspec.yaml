@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   http: any
   provider: any
+  fluid_bottom_nav_bar: ^1.4.0
 
 dev_dependencies:
   flutter_test:
