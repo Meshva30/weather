@@ -86,6 +86,7 @@ class Homescreen extends StatelessWidget {
                             if (provider.weathermodel == null) {
                               return const CircularProgressIndicator();
                             }
+
                             WeatherModel weatherData = provider.weathermodel!;
                             return Column(
                               children: [
