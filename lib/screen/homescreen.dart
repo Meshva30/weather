@@ -461,27 +461,13 @@ class Homescreen extends StatelessWidget {
                     Container(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: weatherData!.current!.isDay == 1
-                            ? const AssetImage('assets/day.jpg')
-                            : const AssetImage('assets/night.avif'),
-                      )),
+                      color: weatherData!.current!.isDay == 1
+                          ? Colors.blueAccent
+                          : Colors.black12,
                       child: Padding(
                         padding:
-                            const EdgeInsets.only(top: 50, right: 10, left: 10),
+                            const EdgeInsets.only(top: 60, right: 10, left: 10),
                         child: Column(children: [
-                          Container(
-                            height: 300,
-                            width: 350,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: weatherData!.current!.isDay == 1
-                                        ? const AssetImage('assets/m1.png')
-                                        : const AssetImage(''),
-                                    fit: BoxFit.cover)),
-                          ),
                           Container(
                             height: 55,
                             width: 420,
@@ -512,6 +498,16 @@ class Homescreen extends StatelessWidget {
                                 weatherProviderFalse.changeLocation(value);
                               },
                             ),
+                          ),
+                          Container(
+                            height: 335,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: weatherData!.current!.isDay == 1
+                                        ? const AssetImage('assets/m1.png')
+                                        : const AssetImage('assets/1.png'),
+                                    fit: BoxFit.fill)),
                           ),
                           Consumer<WeatherProvider>(
                               builder: (context, provider, child) {
@@ -556,74 +552,104 @@ class Homescreen extends StatelessWidget {
                                   height: 10,
                                 ),
                                 const SizedBox(
-                                  height: 100,
+                                  height: 30,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Hourly Forecast',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: weatherData.current!.isDay == 1
-                                            ? Colors.black
-                                            : Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Weekly Forecast',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: weatherData.current!.isDay == 1
-                                            ? Colors.black
-                                            : Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const Divider(
-                                  color: Colors.grey,
-                                ),
-                                SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
+                                Container(
+                                  height: 260,
+                                  width: 440,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(30),
+                                          topLeft: Radius.circular(30)),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          weatherData.current!.isDay == 1
+                                              ? Colors.black45
+                                              : Colors.grey.shade400,
+                                          Colors.black12,
+                                          Colors.black12,
+                                          // Colors.grey.shade600,
+                                        ]
+                                      )),
+                                  child: Column(
                                     children: [
-                                      container('12 PM', '8',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+
+                                            Text(
+                                              'Hourly Forecast',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 18,
+                                                color:
+                                                    weatherData.current!.isDay ==
+                                                            1
+                                                        ? Colors.black
+                                                        : Colors.white,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Weekly Forecast',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 18,
+                                                color:
+                                                    weatherData.current!.isDay ==
+                                                            1
+                                                        ? Colors.black
+                                                        : Colors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      container('1 PM', '10',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
+                                      const Divider(
+                                        color: Colors.grey,
                                       ),
-                                      container('2 PM', '12',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      container('3 PM', '14',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      container('4 PM', '16',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      container('5 PM', '18',
-                                          weatherData!.current!.isDay),
-                                      const SizedBox(
-                                        width: 10,
+                                      SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          children: [
+                                            container('12 PM', '8',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            container('1 PM', '10',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            container('2 PM', '12',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            container('3 PM', '14',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            container('4 PM', '16',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            container('5 PM', '18',
+                                                weatherData!.current!.isDay),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ),
+                                )
                               ],
                             );
                           }),
