@@ -462,7 +462,7 @@ class Homescreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       color: weatherData!.current!.isDay == 1
-                          ? Colors.blueAccent
+                          ? Colors.blueAccent.shade400
                           : Colors.black12,
                       child: Padding(
                         padding:
